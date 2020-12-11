@@ -1,3 +1,5 @@
+import { TaskListComponent } from './users/task-list/task-list.component';
+import { GlobalTasksComponent } from './users/global-tasks/global-tasks.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
@@ -11,6 +13,9 @@ const routes: Routes = [
   { path: "login", component: LoginComponent},
   { path: "task", component: TaskDetailsComponent},
   { path: "register", component: RegisterComponent},
+  { path: "task-details", component: TaskDetailsComponent},
+  { path: "task-list", component: TaskListComponent},
+  { path: "global-tasks", component: GlobalTasksComponent},
   { path: "**", component: HomeComponent},
 ];
 

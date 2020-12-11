@@ -1,3 +1,4 @@
+import { UsersModule } from './users/users.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -16,8 +17,10 @@ import { RegisterComponent } from './register/register.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })
