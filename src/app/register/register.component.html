@@ -1,4 +1,43 @@
-<p>register works!</p>
+<h1 class=has-text-centered>
+  Ya falta poco...
+</h1>
+<div class="container">
+<div class="field">
+  <label class="label">Username</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-info" type="text" placeholder="Introduce tu Usuario">
+    <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+    <p class="help is-info">Nombre de usuario</p>
 
-<button class="button is-primary" [routerLink]="['/home']">Come back</button>
-<button class="button is-success" [routerLink]="['/task-list']">Register</button>
+  </div>
+
+</div>
+
+<div class="field">
+  <label class="label">Email</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-info" type="email" placeholder="Introduce tu Correo">
+
+    <p class="help is-info">Tu Email</p>
+  </div>
+  <div class="field">
+    <label class="label">Contraseña</label>
+    <div class="control has-icons-left has-icons-right">
+      <input class="input is-info" type="password" placeholder="Introduce tu Contraseña">
+      <p class="help is-info">Tu Contraseña</p>
+    </div>
+    <div class="field">
+      <label class="label">Repite la contraseña</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input is-info" type="password" placeholder="Vuelve a introducir tu Contraseña">
+        <p class="help is-info">Repite tu contraseña</p>
+      </div>
+  <br>
+  <br>
+  <div class= "has-text-centered">
+    <button class="button is-link" [routerLink]="['/task-list']">Registrate</button>
+    <p>¿Ya tienes cuenta?</p>
+    <p [routerLink]="['/login']"><a>Logueate</a></p>
+  </div>

@@ -1,3 +1,29 @@
-<p>login</p>
-<button class="button is-primary" [routerLink]="['/task-list']">GO!</button>
-<button class="button is-primary" [routerLink]="['/home']">Come back</button>
+<div class="contenedor">
+
+<h1 class=has-text-centered> Welcome to</h1>
+<h1 class=has-text-centered>DIMENSION TIME</h1>
+
+<div class="container">
+<div class="field">
+  <label class="label">Username</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-info" type="text" placeholder="Introduce tu Usuario">
+      <i class="fas fa-user"></i>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Password</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-info" type="email" placeholder="Introduce tu Contraseña">
+    <span class="icon is-small is-left">
+    </span>
+  </div>
+  <div class= "has-text-centered" id="botones">
+    <button class="button is-link" [routerLink]="['/task-list']">Login</button>
+    <p>¿No tienes cuenta?</p>
+    <p [routerLink]="['/register']"><a>Regístrate</a> </p>
+  </div>
+
+</div>
+

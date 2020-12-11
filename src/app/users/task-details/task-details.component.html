@@ -1,5 +1,18 @@
 <p>task-details works!</p>
+
+
+<h1>CONTADOR</h1>
+<h1>TASK 1</h1>
+<div>
+  <p>{{hora}} : {{minuto}} : {{segundos}}</p>
+</div>
+<button class="button is-primary" (click)="start()">EMPEZAR</button>
+<button class="button is-success" (click)="pausar()">PAUSAR</button>
+<button class="button is-danger" (click)="parar()">STOP</button>
+<div class="botenes">
+  <h2>Logout:</h2>
+  <a class="button is-primary" [routerLink]="['/home']"> LOGOUT</a>
+</div>
 <a class="button is-primary" [routerLink]="['/task-list']"> SEE ALL TASKS</a>
-<h2>Logout:</h2>
-<a class="button is-primary" [routerLink]="['/home']"> LOGOUT</a>
+
 
