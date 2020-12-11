@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "prueba-5bc2b": {
+      "hosting": {
+        "dimension-time-project": [
+          "prueba-5bc2b"
+        ]
+      }
+    }
+  }
+}
