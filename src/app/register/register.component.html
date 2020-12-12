@@ -1,8 +1,10 @@
 <h1 class=has-text-centered>
   Ya falta poco...
 </h1>
+
 <div class="container">
-<div class="field">
+
+  <div class="field">
   <label class="label">Username</label>
   <div class="control has-icons-left has-icons-right">
     <input class="input is-info" type="text" placeholder="Introduce tu Usuario">
@@ -10,10 +12,8 @@
       <i class="fas fa-user"></i>
     </span>
     <p class="help is-info">Nombre de usuario</p>
-
   </div>
-
-</div>
+  </div>
 
 <div class="field">
   <label class="label">Email</label>
@@ -34,9 +34,7 @@
         <input class="input is-info" type="password" placeholder="Vuelve a introducir tu Contraseña">
         <p class="help is-info">Repite tu contraseña</p>
       </div>
-  <br>
-  <br>
-  <div class= "has-text-centered">
+  <div class= "has-text-centered" id="registro">
     <button class="button is-link" [routerLink]="['/task-list']">Registrate</button>
     <p>¿Ya tienes cuenta?</p>
     <p [routerLink]="['/login']"><a>Logueate</a></p>
