@@ -1,3 +1,4 @@
+import { FirebaseService } from './services/firebase.service';
 import { UsersModule } from './users/users.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -8,11 +9,11 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
-
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,11 +29,10 @@ import { environment } from 'src/environments/environment';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-
-
+    ReactiveFormsModule
   ],
   exports: [],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

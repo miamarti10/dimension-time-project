@@ -1,13 +1,14 @@
+
 <div class="contenedor">
 
 <h1 class=has-text-centered> Welcome to</h1>
 <h1 class=has-text-centered>DIMENSION TIME</h1>
 
-<div class="container">
+<form class="container" [formGroup]="myForm" (ngSubmit)="submit()">
 <div class="field">
   <label class="label">Username</label>
   <div class="control has-icons-left has-icons-right">
-    <input class="input is-success" type="text" placeholder="Introduzca el Usuario">
+    <input class="input is-success" type="text" placeholder="Introduzca el Usuario" formControlName="usuario">
     <span class="icon is-small is-left">
       <i class="fas fa-user"></i>
     </span>
@@ -21,11 +22,15 @@
 <div class="field">
   <label class="label">Password</label>
   <p class="control has-icons-left">
-    <input class="input" type="password" placeholder="Introduzca la Contraseña">
+    <input class="input" type="password" placeholder="Introduzca la Contraseña" formControlName="password" minlength="8">
     <span class="icon is-small is-left">
       <i class="fas fa-lock"></i>
     </span>
   </p>
+  <p class="help is-danger" *ngIf="myForm.hasError('required', 'password')">Password is required</p>
+  <!-- <p *ngIf="password.invalid" class="help is-danger">
+  <span *ngIf="password.errors.min">The amount should be bigger than 0.01</span>
+  </p> -->
 </div>
 
   <div class= "has-text-centered" id="botones">
@@ -34,5 +39,25 @@
     <p [routerLink]="['/register']"><a>Regístrate</a> </p>
   </div>
 
+</form>
+
 </div>
+
+
+ <!-- <div *ngIf="!isSignedIn">
+  <h2>Sign up</h2>
+  <input type = "text" #emailSignup/>
+  <input type = "text" #passwordSignup/>
+  <button (click)="onSignup(emailSignup.value, passwordSignup.value)">Sign up</button>
+  </div>
+  <hr>
+  <div *ngIf="!isSignedIn">
+  <h2>Sign in</h2>
+  <input type = "text" #email/>
+  <input type = "text" #password/>
+  <button (click)="onSignin(email.value, password.value)">Sign up</button>
+  </div>
+
+  <app-home *ngIf="!isSignedIn" (isLogout)="handleLogout()"></app-home> -->
+
 

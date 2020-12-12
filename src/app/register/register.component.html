@@ -2,12 +2,12 @@
   Ya falta poco...
 </h1>
 
-<div class="container">
+<form class="container" [formGroup]="registerForm">
 
   <div class="field">
   <label class="label">Usuario</label>
   <div class="control has-icons-left has-icons-right">
-    <input class="input is-info" type="text" placeholder="Introduzca el Usuario">
+    <input class="input is-info" type="text" placeholder="Introduzca el Usuario" formControlName="usuario">
     <span class="icon is-small is-left">
       <i class="fas fa-user"></i>
     </span>
@@ -18,7 +18,7 @@
 <div class="field">
   <label class="label">Email</label>
   <p class="control has-icons-left">
-    <input class="input is-info" type="email" placeholder="ejemplo@gmail.com">
+    <input class="input is-info" type="email" placeholder="ejemplo@gmail.com" formControlName="email">
     <span class="icon is-small is-left">
       <i class="fas fa-envelope"></i>
     </span>
@@ -30,27 +30,29 @@
   <div class="field">
     <label class="label">Contraseña</label>
     <p class="control has-icons-left">
-      <input class="input" type="password" placeholder="Introduzca la Contraseña">
+      <input class="input" type="password" placeholder="Introduzca la Contraseña" required minlength="6" formControlName="password">
       <span class="icon is-small is-left">
         <i class="fas fa-lock"></i>
       </span>
     </p>
+    <p class="help is-danger" *ngIf="registerForm.hasError('required', 'password')">Password is required</p>
   </div>
 
   <div class="field">
     <label class="label">Confirme contraseña</label>
     <p class="control has-icons-left">
-      <input class="input" type="password" placeholder="Introduzca la Contraseña" required minlength="6">
+      <input class="input" type="password" placeholder="Introduzca la Contraseña" required minlength="6" formControlName="ConfirmPassword">
       <span class="icon is-small is-left">
         <i class="fas fa-lock"></i>
       </span>
     </p>
-  <!--   <p class="help is-danger">This email is invalid</p> EN CASO DE ERROR -->
+    <p class="help is-danger" *ngIf="registerForm.hasError('required', 'ConfirmPassword')">Password is required</p>
   </div>
 
 
   <div class= "has-text-centered" id="registro">
-    <button class="button is-link" [routerLink]="['/task-list']" >Regístrate</button>
+    <button class="button is-link" [routerLink]="['/task-list']" (click)="createUser()" >Regístrate</button>
     <p>¿Ya tienes cuenta?</p>   <!-- [disabled]="true" en el caso que no esten todos los campos-->
     <p [routerLink]="['/login']"><a>Loguéate</a></p>
   </div>
+
