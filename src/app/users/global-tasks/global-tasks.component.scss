@@ -1,0 +1,34 @@
+:host{
+
+#navbarBasicExample{
+  width: 386px;
+}
+  .tasks{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+
+
+
+  h1{
+
+    text-align: center;
+  }
+
+  .bar{
+    margin: auto;
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .list{
+padding-top: 20px;
+text-align: center;
+  }
+}
+
+}

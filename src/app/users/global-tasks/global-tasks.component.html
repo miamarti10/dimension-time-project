@@ -1,6 +1,53 @@
-<p>global-tasks works!</p>
-<button class="button is-primary" [routerLink]="['/task-list']">SEE ALL TASKS</button>
-<h2>Logout:</h2>
-<a class="button is-primary" [routerLink]="['/home']"> LOGOUT</a>
+<!-- ESTO ES ES TOOLBAR
+ -->
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item">
+      <img
+        src="../../../assets/Dimension logo.png"
+        width="160"
+        height="60"
+      />
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a
+        role="button"
+        class="navbar-burger"
+        aria-label="menu"
+        aria-expanded="false"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+      <div class="navbar-start">
+        <a class="button is-primary" [routerLink]="['/task-list']">
+          SEE ALL TASKS</a
+        >
+        <a class="button is-primary" [routerLink]="['/home']"> LOG OUT</a>
+      </div>
+    </div>
+  </div>
+</nav>
 
-<h1>HERE YOU SEE ALL TEAM TASKS</h1>
+<!-- GLOBAL TASK START
+ -->
+<div class="tasks">
+  <h1 class="has-text-grey-light my-5">Project X process:</h1>
+  <div class="bar">
+    <progress class="progress is-info" value="60" max="100">60%</progress>
+  </div>
+  <ul>
+    <li>
+      <figure class="image is-128x128">
+        <img class="is-rounded" src="../../../assets/avatar-user.png" />
+      </figure>
+    </li>
+  </ul>
+  <ul class="list" >
+    <li class="subtitle is-5 has-text-primary	">Programing Tables</li>
+    <li class="subtitle is-5 has-text-warning">In Progress</li>
+  </ul>
+</div>

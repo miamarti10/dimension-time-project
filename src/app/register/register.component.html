@@ -5,9 +5,9 @@
 <div class="container">
 
   <div class="field">
-  <label class="label">Username</label>
+  <label class="label">Usuario</label>
   <div class="control has-icons-left has-icons-right">
-    <input class="input is-info" type="text" placeholder="Introduce tu Usuario">
+    <input class="input is-info" type="text" placeholder="Introduzca el Usuario">
     <span class="icon is-small is-left">
       <i class="fas fa-user"></i>
     </span>
@@ -17,25 +17,38 @@
 
 <div class="field">
   <label class="label">Email</label>
-  <div class="control has-icons-left has-icons-right">
-    <input class="input is-info" type="email" placeholder="Introduce tu Correo">
-
-    <p class="help is-info">Tu Email</p>
+  <p class="control has-icons-left">
+    <input class="input is-info" type="email" placeholder="ejemplo@gmail.com">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small">
+    </span>
+  </p>
   </div>
+
   <div class="field">
     <label class="label">Contraseña</label>
-    <div class="control has-icons-left has-icons-right">
-      <input class="input is-info" type="password" placeholder="Introduce tu Contraseña">
-      <p class="help is-info">Tu Contraseña</p>
-    </div>
-    <div class="field">
-      <label class="label">Repite la contraseña</label>
-      <div class="control has-icons-left has-icons-right">
-        <input class="input is-info" type="password" placeholder="Vuelve a introducir tu Contraseña">
-        <p class="help is-info">Repite tu contraseña</p>
-      </div>
+    <p class="control has-icons-left">
+      <input class="input" type="password" placeholder="Introduzca la Contraseña">
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </p>
+  </div>
+
+  <div class="field">
+    <label class="label">Confirme contraseña</label>
+    <p class="control has-icons-left">
+      <input class="input" type="password" placeholder="Introduzca la Contraseña">
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </p>
+  </div>
+
   <div class= "has-text-centered" id="registro">
-    <button class="button is-link" [routerLink]="['/task-list']">Registrate</button>
-    <p>¿Ya tienes cuenta?</p>
-    <p [routerLink]="['/login']"><a>Logueate</a></p>
+    <button class="button is-link" [routerLink]="['/task-list']" >Regístrate</button>
+    <p>¿Ya tienes cuenta?</p>   <!-- [disabled]="true" en el caso que no esten todos los campos-->
+    <p [routerLink]="['/login']"><a>Loguéate</a></p>
   </div>
