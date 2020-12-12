@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
@@ -14,14 +16,21 @@ export class LoginComponent implements OnInit {
   myForm!: FormGroup;
   submitted = false;
 
-  constructor(public firebaseService: FirebaseService, private fb: FormBuilder,
-    public service: AuthService) { }
+  constructor(
+    public firebaseService: FirebaseService,
+    private fb: FormBuilder,
+    private auth: AngularFireAuth,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
-      usuario: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
+  }
+  onLogin(){
+    const {email, password} = this.myForm.value;
+    this.auth.signInWithEmailAndPassword(email, password).then(()=> this.router.navigate(['/task-list']));
   }
 
 

@@ -51,7 +51,7 @@
 
 
   <div class= "has-text-centered" id="registro">
-    <button class="button is-link" [routerLink]="['/task-list']" (click)="createUser()" >Regístrate</button>
+    <button class="button is-link" (click)="createUser()" >Regístrate</button>
     <p>¿Ya tienes cuenta?</p>   <!-- [disabled]="true" en el caso que no esten todos los campos-->
     <p [routerLink]="['/login']"><a>Loguéate</a></p>
   </div>
