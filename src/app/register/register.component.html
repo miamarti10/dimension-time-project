@@ -40,12 +40,14 @@
   <div class="field">
     <label class="label">Confirme contraseña</label>
     <p class="control has-icons-left">
-      <input class="input" type="password" placeholder="Introduzca la Contraseña">
+      <input class="input" type="password" placeholder="Introduzca la Contraseña" required minlength="6">
       <span class="icon is-small is-left">
         <i class="fas fa-lock"></i>
       </span>
     </p>
+  <!--   <p class="help is-danger">This email is invalid</p> EN CASO DE ERROR -->
   </div>
+
 
   <div class= "has-text-centered" id="registro">
     <button class="button is-link" [routerLink]="['/task-list']" >Regístrate</button>
