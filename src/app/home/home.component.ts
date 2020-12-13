@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
@@ -10,10 +10,15 @@ export class HomeComponent implements OnInit {
 
   /* @Output() isLogout = new EventEmitter<void>()
  */
+
   constructor(public firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
   }
+
+
+
+
   //Firebase
 /*   logout(){
     this.firebaseService.logout()

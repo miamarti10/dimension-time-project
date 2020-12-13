@@ -1,15 +1,25 @@
-<div>
-  <img src="../../assets/astronauta1.png" alt="" width="150px">
+<div class="container">
+  <img src="../../assets/astronauta1.png"
+        alt="" width="150px"
+        data-aos="fade-down-right"
+        data-aos-delay="1000"
+        data-aos-duration='1000'>
   <div class="contenido">
-  <h1 class=has-text-centered> Welcome to</h1>
-  <h1 class=has-text-centered>DIMENSION TIME</h1>
-  <p class=has-text-centered>Controla el tiempo y la dimension de tu trabajo. Añade tareas y llega a los deadlines a tiempo con esta super app de project management.</p>
-  <div class="botones">
-    <button class="button is-primary" [routerLink]="['/login']">Login</button>
-    <button class="button is-primary" [routerLink]="['/register']">Register</button>
+    <h1 class=has-text-centered> Welcome to</h1>
+    <h1 class=has-text-centered>DIMENSION TIME</h1>
+    <p class=has-text-centered>Controla el tiempo y la dimension de tu trabajo. Añade tareas y llega a los deadlines a tiempo con esta super app de project management.</p>
+    <div class="botones" >
+      <button class="button is-primary"
+              [routerLink]="['/login']"
+              data-aos="fade-down-left"
+              data-aos-delay="500"
+              data-aos-duration='1000'>Login</button>
+      <button class="button is-primary"
+              [routerLink]="['/register']"
+              data-aos="fade-down-left"
+              data-aos-delay="500"
+              data-aos-duration='1000'>Register</button>
+    </div>
   </div>
-
-  </div>
-
 </div>
 
