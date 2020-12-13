@@ -1,4 +1,73 @@
-<p>task-list works!</p>
+<nav class="navbar is-primary is-info" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="">
+      <img src="../../../assets/Dimension logo.png" width="152" height="78">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" [routerLink]="['/task-list']">
+        Home
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <div class="navbar-dropdown">
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Task list
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary" [routerLink]="['/global-tasks']">
+            <strong>
+              Team mission</strong>
+          </a>
+          <a class="button is-light" [routerLink]="['/home']" (click)="onLogout()">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="section">
+<h1>Tareas globales:</h1>
+<div class="buttons">
+  <button class="button is-light is-rounded" [routerLink]="['/task-details']">Tarea Home</button>
+  <button class="button is-light is-rounded" [routerLink]="['/task-details']">Subir archivos backend</button>
+  <button class="button is-light is-rounded" [routerLink]="['/task-details']">Crear Auth</button>
+  <button class="button is-light is-rounded" [routerLink]="['/task-details']">Crear Menu</button>
+  <button class="button is-light is-rounded" [routerLink]="['/task-details']">Crear Modulos</button>
+</div>
+<h1>
+  Tus tareas:
+</h1>
+<div class="columns is-mobile is-centered is-vcentered">
+  <div class="image is-64x64">
+    <img class='is-rounded' src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/19/UP3749-CUSA10307_00-AV00000000000066/image?w=320&h=320&bg_color=000000&opacity=100&_version=00_09_000" alt="">
+  </div>
+  <div class="column">
+    <span class="title">Tareas</span><br>
+    <span class="subtitle">Finished 1.5 Hours</span>
+  </div>
+</div>
+</section>
+
+
+
+
+
+<!-- <p>task-list works!</p>
 <h1>ALL THE TASKS:</h1>
 <a class="button is-primary" [routerLink]="['/task-details']"> TASK 1</a>
 <a class="button is-link" [routerLink]="['/task-details']"> TASK 2</a>
@@ -9,5 +78,5 @@
 <h2>See global project:</h2>
 <a class="button is-primary" [routerLink]="['/global-tasks']"> SEE TEAM TASKS</a>
 <h2>Logout:</h2>
-<a class="button is-primary" [routerLink]="['/home']" (click)="onLogout()">LOGOUT</a>
+<a class="button is-primary" [routerLink]="['/home']" (click)="onLogout()">LOGOUT</a> -->
 

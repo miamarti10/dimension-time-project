@@ -5,67 +5,67 @@
 <form class="container" [formGroup]="registerForm">
 
   <div class="field">
-  <label class="label">Nombre</label>
-  <div class="control has-icons-left has-icons-right">
-    <input class="input is-info" type="text" placeholder="Nombre" formControlName="name">
-    <span class="icon is-small is-left">
+    <label class="label">Nombre</label>
+    <div class="control has-icons-left has-icons-right">
+      <input class="input is-info" type="text" placeholder="Nombre" formControlName="name">
+      <span class="icon is-small is-left">
       <i class="fas fa-user"></i>
-    </span>
-    <p class="help is-info">Escriba su nombre</p>
-    <p *ngIf="registerForm.controls.name.errors && (registerForm.controls.name.dirty || registerForm.controls.name.touched) "class="help is-danger">
+      </span>
+      <p class="help is-info">Escriba su nombre</p>
+      <p *ngIf="registerForm.controls.name.errors && (registerForm.controls.name.dirty || registerForm.controls.name.touched) "class="help is-danger">
       <span *ngIf="registerForm.hasError('required', 'name')">Name is required *</span>
-    </p>
-  </div>
+      </p>
+    </div>
   </div>
 
-<div class="field">
-  <label class="label">Email</label>
-  <p class="control has-icons-left">
-    <input class="input is-info" type="email" placeholder="ejemplo@gmail.com" formControlName="email">
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-    <span class="icon is-small">
-    </span>
-  </p>
-  <p *ngIf="registerForm.controls.email.errors && (registerForm.controls.email.dirty || registerForm.controls.email.touched) "class="help is-danger">
-    <span *ngIf="registerForm.hasError('required', 'email')">Email address is required *</span>
-    <span *ngIf="registerForm.hasError('email', 'email')">The email address is badly formatted.</span>
-  </p>
+  <div class="field">
+    <label class="label">Email</label>
+    <p class="control has-icons-left">
+      <input class="input is-info" type="email" placeholder="ejemplo@gmail.com" formControlName="email">
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+      <span class="icon is-small">
+      </span>
+    </p>
+    <p *ngIf="registerForm.controls.email.errors && (registerForm.controls.email.dirty || registerForm.controls.  email.touched) "class="help is-danger">
+      <span *ngIf="registerForm.hasError('required', 'email')">Email address is required *</span>
+      <span *ngIf="registerForm.hasError('email', 'email')">The email address is badly formatted *</span>
+    </p>
   </div>
 
   <div class="field">
     <label class="label">Contraseña</label>
     <p class="control has-icons-left">
-      <input class="input" type="password" placeholder="Introduzca la Contraseña" required minlength="6" formControlName="password">
+      <input class="input" type="password" placeholder="Introduzca la Contraseña" required formControlName="password">
       <span class="icon is-small is-left">
         <i class="fas fa-lock"></i>
       </span>
     </p>
     <p *ngIf="registerForm.controls.password.errors && (registerForm.controls.password.dirty || registerForm.controls.password.touched) "class="help is-danger">
       <span *ngIf="registerForm.hasError('required', 'password')">Password is required *</span>
-      <span *ngIf="registerForm.hasError('pattern', 'password')">Password must be 5 characters including 1 uppercase letter, 1 lowercase letter and numeric characters *</span>
+      <span *ngIf="registerForm.hasError('pattern', 'password')">Password must be 7 characters including 1 uppercase letter and 1 lowercase letter *</span>
     </p>
   </div>
 
   <div class="field">
     <label class="label">Confirme contraseña</label>
     <p class="control has-icons-left">
-      <input class="input" type="password" placeholder="Introduzca la Contraseña" required minlength="6" formControlName="ConfirmPassword">
+      <input class="input" type="password" placeholder="Introduzca la Contraseña" required formControlName="ConfirmPassword" >
       <span class="icon is-small is-left">
         <i class="fas fa-lock"></i>
       </span>
     </p>
     <p *ngIf="registerForm.controls.password.errors && (registerForm.controls.ConfirmPassword.dirty || registerForm.controls.ConfirmPassword.touched) "class="help is-danger">
       <span *ngIf="registerForm.hasError('required', 'ConfirmPassword')">Password is required *</span>
-      <span *ngIf="registerForm.hasError('pattern', 'ConfirmPassword')">Password must be 5 characters including 1 uppercase letter, 1 lowercase letter and numeric characters *</span>
+      <span *ngIf="registerForm.hasError('pattern', 'ConfirmPassword')">Password must be 7 characters including 1 uppercase letter and 1 lowercase letter *</span>
     </p>
   </div>
 
-
   <div class= "has-text-centered" id="registro">
     <button class="button is-link" (click)="createUser()" [disabled]="!registerForm.valid" >Regístrate</button>
-    <p>¿Ya tienes cuenta?</p> 
+    <p>¿Ya tienes cuenta?</p>
     <p [routerLink]="['/login']"><a>Loguéate</a></p>
   </div>
+</form>
 

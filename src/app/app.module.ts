@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { FirebaseService } from './services/firebase.service';
 import { UsersModule } from './users/users.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -30,7 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   exports: [],
   providers: [FirebaseService],

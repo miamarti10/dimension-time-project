@@ -1,0 +1,10 @@
+  {"tasks" : [
+        {"avatar": "https://i.imgur.com/SuW2ZlC.jpg"},
+        {"task1": "Arreglar Oxigeno"},
+        {"task2": "Limpiar motores"},
+        {"task3": "Localizar combustible"},
+        {"status1": "Completado"},
+        {"status2": "Completado"},
+        {"status3": "Work in progress"}
+]}
+

@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -16,9 +17,12 @@ export class TaskDetailsComponent implements OnInit {
   contador = null;
   fecha= new Date();
 
-  constructor() { }
+  constructor(private auth: AngularFireAuth) { }
 
   ngOnInit(): void {
+  }
+  onLogout(){
+    this.auth.signOut();
   }
   start(){
     this.mostrar ? this.mostrar = false : this.mostrar = true;

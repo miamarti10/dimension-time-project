@@ -18,14 +18,14 @@
     </p>
     <p *ngIf="myForm.controls.email.errors && (myForm.controls.email.dirty || myForm.controls.email.touched) "class="help is-danger">
       <span *ngIf="myForm.hasError('required', 'email')">Email address is required *</span>
-      <span *ngIf="myForm.hasError('email', 'email')">The email address is badly formatted.</span>
+      <span *ngIf="myForm.hasError('email', 'email')">The email address is badly formatted *</span>
     </p>
     </div>
 
 <div class="field">
   <label class="label">Password</label>
   <p class="control has-icons-left">
-    <input class="input is-info" type="password" placeholder="Introduzca la Contraseña" formControlName="password" minlength="5">
+    <input class="input is-info" type="password" placeholder="Introduzca la Contraseña" formControlName="password">
     <span class="icon is-small is-left">
       <i class="fas fa-lock"></i>
     </span>
@@ -33,7 +33,7 @@
 
   <p *ngIf="myForm.controls.password.errors && (myForm.controls.password.dirty || myForm.controls.password.touched) "class="help is-danger">
   <span class="help is-danger" *ngIf="myForm.hasError('required', 'password')">Password is required *</span>
-  <span class="help is-danger" *ngIf="myForm.hasError('pattern', 'password')">Password must be 5 characters including 1 uppercase letter, 1 lowercase letter and numeric characters *</span>
+  <span class="help is-danger" *ngIf="myForm.hasError('pattern', 'password')">Password must be 7 characters including 1 uppercase letter and 1 lowercase letter *</span>
   </p>
 </div>
 
