@@ -2,7 +2,6 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
@@ -25,12 +24,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.myForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-    });
+      password: ['', [Validators.required, Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}")]],
+    }); console.log(this.myForm.errors)
   }
   onLogin(){
     const {email, password} = this.myForm.value;
     this.auth.signInWithEmailAndPassword(email, password).then(()=> this.router.navigate(['/task-list']));
+  console.log();
   }
 
 

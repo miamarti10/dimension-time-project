@@ -1,8 +1,14 @@
 :host{
 
-#navbarBasicExample{
-  width: 386px;
-}
+  nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+    .navbar-start{
+    margin-top: 6%;
+    }
+  }
   .tasks{
 
     display: flex;
