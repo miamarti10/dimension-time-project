@@ -2,13 +2,12 @@
 
   div{
     background-image: url(../../assets/fondo_home.jpg);
-    height: 590px;
     background-attachment: fixed;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    height: 650px;
     img{
       margin-top: 15%;
       margin-bottom: 3%;
