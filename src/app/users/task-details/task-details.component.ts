@@ -10,11 +10,19 @@ export class TaskDetailsComponent implements OnInit {
   public minuto: number = 0;
   public segundos: number = 0;
 
+  isPaused!: boolean;
+  buttonLabel: string = 'PARAR';
+  mostrar: boolean = false;
+  contador = null;
+  fecha= new Date();
+
   constructor() { }
 
   ngOnInit(): void {
   }
   start(){
+    this.mostrar ? this.mostrar = false : this.mostrar = true;
+
     setInterval(()=>{
       this.segundos+=1;
       if(this.segundos == 60){
@@ -30,10 +38,18 @@ export class TaskDetailsComponent implements OnInit {
       }
     }, 1000);
   }
-  pausar(){
+  pausar(): void{
+    this.isPaused = !this.isPaused;
 
+    if(this.minuto < 24 || this.segundos < 59){
+      this.buttonLabel = this.isPaused ? 'REANUDAR' : 'PARAR';
+    }
   }
   parar(){
+    this.hora = 0;
+    this.minuto = 0;
+    this.segundos = 0;
+    this.contador = null;
   }
 
 }

@@ -4,9 +4,12 @@
   <p>{{hora}} : {{minuto}} : {{segundos}}</p>
 </div>
 
-<button class="button is-primary" (click)="start()">EMPEZAR</button>
-<button class="button is-success" (click)="pausar()">PAUSAR</button>
-<button class="button is-danger" (click)="parar()">STOP</button>
+<button class="button is-primary" (click)="start()" *ngIf='!mostrar'>INICIAR</button>
+<div *ngIf='mostrar'>
+  <button class="button is-success" (click)="pausar()">{{buttonLabel}}</button>
+  <button class="button is-danger" (click)="parar()">FINALIZAR</button>
+</div>
+
 
 <div class="botones">
   <h2>Logout:</h2>
