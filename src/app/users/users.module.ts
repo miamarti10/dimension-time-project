@@ -1,3 +1,4 @@
+import { DateComponent } from './Date/Date.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './../home/home.component';
 import { NgModule } from '@angular/core';
@@ -9,7 +10,11 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
 
 
 @NgModule({
-  declarations: [TaskListComponent, GlobalTasksComponent, TaskDetailsComponent],
+  declarations: [
+    TaskListComponent,
+    GlobalTasksComponent,
+    TaskDetailsComponent,
+    DateComponent],
   imports: [
     CommonModule,
     RouterModule

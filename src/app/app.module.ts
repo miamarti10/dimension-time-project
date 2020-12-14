@@ -1,3 +1,4 @@
+import { DateComponent } from './users/Date/Date.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FirebaseService } from './services/firebase.service';
 import { UsersModule } from './users/users.module';
@@ -21,7 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

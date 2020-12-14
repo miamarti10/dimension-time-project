@@ -9,4 +9,5 @@ export interface GlobalTask {
     description?: string;
     name?: string;
     id?: string;
+    status?:string;
 }

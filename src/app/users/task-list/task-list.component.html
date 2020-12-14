@@ -29,28 +29,21 @@
 </nav>
 
 <section class="section">
-<h1>Tareas globales:</h1>
+<h1 class="title">Tareas globales</h1>
 <div class="buttons">
   <button class="button is-light is-rounded"
   [routerLink]="['/task-details/', item.id]"
   *ngFor="let item of collection" >{{item.name}}</button>
 </div>
-<h1>
-  Tus tareas:
-</h1>
-<div class="columns is-mobile is-centered is-vcentered">
-  <div class="image is-64x64">
-    <img class='is-rounded' src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/19/UP3749-CUSA10307_00-AV00000000000066/image?w=320&h=320&bg_color=000000&opacity=100&_version=00_09_000" alt="">
+
+  <h1 class="title">Tareas</h1>
+  <div id="clection" *ngFor="let item of collection">
+    <img class='avatar' src="{{item.avatar}}" width="64" height="64">
+    <button class="button has-text-info is-light is-rounded">{{item.name}}</button>
+    <p class="has-text-success">{{item.status}}</p>
   </div>
-  <div class="column">
-    <span class="title">Tareas</span><br>
-    <span class="subtitle">Finished 1.5 Hours</span>
-  </div>
-</div>
+
 </section>
-
-
-
 
 
 <!-- <p>task-list works!</p>
