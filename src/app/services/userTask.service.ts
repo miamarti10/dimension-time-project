@@ -15,7 +15,8 @@ createTask(userTask: UserTask){
   return this.fs.collection<UserTask>('userTasks').doc(userTask.id).set(userTask);
 }
 getTask$(taskId: string | null, userId: string | null): Observable<UserTask[]>{
-  return this.fs.collection<UserTask>('userTasks').valueChanges();
+  return this.fs.collection<UserTask>('userTasks', ref =>
+  ref.where('userId', '==', userId).where('taskId', '==', taskId)).valueChanges();
   }
 
 }

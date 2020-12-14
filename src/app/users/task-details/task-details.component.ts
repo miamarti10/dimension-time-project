@@ -41,7 +41,8 @@ export class TaskDetailsComponent implements OnInit, OnDestroy {
     const userId = await user.uid;
     console.log('TaskID:', taskId);
     console.log('userId:', userId);
-    this.userTaskService.getTask$(taskId, userId).subscribe(data => {this.userTask = data[0];  console.log(this.userTask)});
+    this.userTaskService.getTask$(taskId, userId).subscribe(data =>
+      {this.userTask = data[0];  console.log(this.userTask)});
   /*  this.id = this.route.snapshot.paramMap.get('id');
     this.subscribe = this.globalService.getGlobalTasks$().subscribe(data => this.collection = data); */
   }
