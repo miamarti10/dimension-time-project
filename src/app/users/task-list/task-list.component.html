@@ -14,13 +14,6 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" [routerLink]="['/task-list']">Home</a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <div class="navbar-dropdown">
-          <hr class="navbar-divider">
-          <a class="navbar-item">Task in progress</a>
-        </div>
-      </div>
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
@@ -37,12 +30,10 @@
 
 <section class="section">
 <h1>Tareas globales:</h1>
-<div class="buttons">                   <!-- asignar id a cada tarea!! -->
-  <button class="button is-light is-rounded" [routerLink]="['/task-details']">Tarea Home</button>
-  <button class="button is-light is-rounded" [routerLink]="['/task-details']">Subir archivos backend</button>
-  <button class="button is-light is-rounded" [routerLink]="['/task-details']">Crear Auth</button>
-  <button class="button is-light is-rounded" [routerLink]="['/task-details']">Crear Menu</button>
-  <button class="button is-light is-rounded" [routerLink]="['/task-details']">Crear Modulos</button>
+<div class="buttons">
+  <button class="button is-light is-rounded"
+  [routerLink]="['/task-details/', item.id]"
+  *ngFor="let item of collection" >{{item.name}}</button>
 </div>
 <h1>
   Tus tareas:

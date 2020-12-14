@@ -15,7 +15,7 @@ export class GlobalTasksComponent implements OnInit {
   Iglobaltasks!: GlobalTask[];
 
   ngOnInit(): void {
-    this._globaltask.getGlobalTasks().subscribe((data) => {
+    this._globaltask.getGlobalTasks$().subscribe((data) => {
       this.Iglobaltasks = data;
     });
   }

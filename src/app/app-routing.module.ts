@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent},
   { path: "register", component: RegisterComponent},
   { path: "task-list", component: TaskListComponent, canActivate: [AngularFireAuthGuard]},
-  { path: "task-details", component: TaskDetailsComponent},
+  { path: "task-details/:id", component: TaskDetailsComponent},
   { path: "global-tasks", component: GlobalTasksComponent},
   { path: "**", component: HomeComponent},
 ];

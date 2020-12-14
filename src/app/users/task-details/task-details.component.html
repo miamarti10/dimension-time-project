@@ -14,13 +14,6 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" [routerLink]="['/task-list']">Home</a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <div class="navbar-dropdown">
-          <hr class="navbar-divider">
-          <a class="navbar-item">Task in progress</a>
-        </div>
-      </div>
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
@@ -34,11 +27,17 @@
   </div>
 </nav>
 
-<h1>CONTADOR</h1>
-<h1>TASK 1</h1>
+
+<div *ngFor="let item of collection" >
+  <h1 >{{item.name}}</h1>
+  <h1 >{{item.description}}</h1>
+</div>
+
 <div>
   <p>{{hora}} : {{minuto}} : {{segundos}}</p>
 </div>
+
+{{userTask | json}}
 
 <button class="button is-primary" (click)="start()" *ngIf='!mostrar'>INICIAR</button>
 <div *ngIf='mostrar'>
