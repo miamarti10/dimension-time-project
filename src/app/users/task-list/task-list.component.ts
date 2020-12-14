@@ -9,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
+
   collection!: GlobalTask[];
+  isModalActive: boolean = false;
+
   constructor(private auth: AngularFireAuth, private globalService: GlobaltaskService) { }
 
   ngOnInit(): void {
@@ -17,6 +20,9 @@ export class TaskListComponent implements OnInit {
   }
   onLogout(){
     this.auth.signOut();
+  }
+  toggleModal() {
+    this.isModalActive = !this.isModalActive;
   }
 
 }
