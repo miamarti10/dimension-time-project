@@ -56,9 +56,12 @@
         <i class="fas fa-lock"></i>
       </span>
     </p>
-    <p *ngIf="registerForm.controls.password.errors && (registerForm.controls.ConfirmPassword.dirty || registerForm.controls.ConfirmPassword.touched) "class="help is-danger">
+    <p *ngIf="registerForm.controls.password.errors && (registerForm.controls.ConfirmPassword.dirty || registerForm.controls.ConfirmPassword.touched)" class="help is-danger">
       <span *ngIf="registerForm.hasError('required', 'ConfirmPassword')">Password is required *</span>
       <span *ngIf="registerForm.hasError('pattern', 'ConfirmPassword')">Password must be 7 characters including 1 uppercase letter and 1 lowercase letter *</span>
+    </p>
+    <p *ngIf="registerForm.controls.ConfirmPassword.value != registerForm.controls.password.value" class="help is-danger">
+      <span *ngIf='registerForm.controls.ConfirmPassword.value != registerForm.controls.password.value'>Password does not match the confirm password *</span>
     </p>
   </div>
 

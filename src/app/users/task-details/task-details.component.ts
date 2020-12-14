@@ -22,13 +22,12 @@ export class TaskDetailsComponent implements OnInit {
   buttonLabel: string = 'PARAR';
   mostrar: boolean = false;
   contador = null;
-  fecha= new Date();
+  fecha = new Date();
 
   id: any;
   public subscribe!: Subscription;
   task!: GlobalTask;
   userTask!: UserTask;
-
   collection!: GlobalTask[];
 
   constructor(private fs: FirebaseService,
@@ -36,10 +35,16 @@ export class TaskDetailsComponent implements OnInit {
               private route: ActivatedRoute,
               private userTaskService: UserTaskService) { }
 
-  ngOnInit(): void{
-    this.globalService.getGlobalTasks$().subscribe((data) => {
-      this.collection = data;
-    });
+  async ngOnInit(){
+    const taskId = this.route.snapshot.paramMap.get('id');
+    const user = await this.fs.getUser();
+    const userId = await user.uid;
+    console.log('taskID:', taskId);
+    console.log('userId:', userId);
+    this.userTaskService.getTask$(taskId, userId).subscribe(data =>
+      {this.userTask = data[0];
+        console.log(this.userTask)
+      });
 
 /*     const taskId = this.route.snapshot.paramMap.get('id');
     const user = await this.fs.getUser();
@@ -51,6 +56,7 @@ export class TaskDetailsComponent implements OnInit {
   /*  this.id = this.route.snapshot.paramMap.get('id');
     this.subscribe = this.globalService.getGlobalTasks$().subscribe(data => this.collection = data); */
   }
+
   existTask(){
 
   }

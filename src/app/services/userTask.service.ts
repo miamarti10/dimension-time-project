@@ -8,15 +8,20 @@ import { UserTask } from '../Interface/user-task';
 })
 export class UserTaskService {
 
-constructor(private fs: AngularFirestore) { }
+constructor(private afs: AngularFirestore) { }
 
 createTask(userTask: UserTask){
-  userTask.id = this.fs.createId();
-  return this.fs.collection<UserTask>('userTasks').doc(userTask.id).set(userTask);
+  userTask.id = this.afs.createId();
+  return this.afs.collection<UserTask>('userTasks').doc(userTask.id).set(userTask);
 }
-getTask$(taskId: string | null, userId: string | null): Observable<UserTask[]>{
-  return this.fs.collection<UserTask>('userTasks', ref =>
+getTask$(taskId: string | null, userId: string | null){
+  return this.afs.collection<UserTask>('userTasks', ref =>
   ref.where('userId', '==', userId).where('taskId', '==', taskId)).valueChanges();
   }
+  /* getByNameAndId(){
+    return this.afs.collection<User>('users', ref =>
+    ref.where('name','==','sara').where('id','==','Lir0KR4sX5YhPA7MKgesedSJgv12')).valueChanges();
+  } */
+
 
 }

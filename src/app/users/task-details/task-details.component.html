@@ -27,20 +27,22 @@
   </div>
 </nav>
 
-<h1 class="title">TASK DETAIL</h1>
+<div class="contenido">
 
+<h1 class="subtitle is-3">TASK DETAIL</h1>
+<p class="subtitle is-5">userTask.name</p>
+<p class="subtitle is-5">userTask.description</p>
 
-<h1 class="title">DATA</h1>
+<h1 class="subtitle is-3">DATA</h1>
 <app-Date></app-Date>
 <div>
-  <p>{{hora}} : {{minuto}} : {{segundos}}</p>
+  <p class="contador">{{hora}} : {{minuto}} : {{segundos}}</p>
 </div>
 
-{{userTask | json}}
 
 <button class="button is-primary" (click)="start()" *ngIf='!mostrar'>INICIAR</button>
 <div *ngIf='mostrar'>
   <button class="button is-success" (click)="pausar()">{{buttonLabel}}</button>
   <button class="button is-danger" (click)="parar()">FINALIZAR</button>
 </div>
-
+</div>
