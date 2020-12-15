@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { UserTask } from './../../Interface/user-task';
 import { UserTaskService } from './../../services/userTask.service';
 import { FirebaseService } from './../../services/firebase.service';
@@ -35,15 +36,17 @@ export class TaskDetailsComponent implements OnInit {
   taskId!: string;
   userId!: string;
 
+
   constructor(private fs: FirebaseService,
               private globalService: GlobaltaskService,
               private route: ActivatedRoute,
-              private userTaskService: UserTaskService) { }
+              private userTaskService: UserTaskService,
+              private auth: AngularFireAuth) { }
 
   async ngOnInit(){
     const taskId = this.route.snapshot.paramMap.get('id');
     const user = await this.fs.getUser();
-    const userId = user.uid;
+    const userId = await user.uid;
     await this.getTask(taskId, userId);
   }
 
@@ -63,7 +66,7 @@ export class TaskDetailsComponent implements OnInit {
       this.userTask = userTask;
     }
   }
-  
+
   onLogout(){
     this.fs.logout();
   }

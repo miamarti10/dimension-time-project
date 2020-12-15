@@ -6,6 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class FirebaseService {
   isLoggedIn = false
+
   constructor(public firebaseAuth : AngularFireAuth) { }
 
   async signin(email:string, password: string){
