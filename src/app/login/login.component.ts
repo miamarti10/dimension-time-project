@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   myForm!: FormGroup;
   submitted = false;
   error!: string;
-
+  formGroup: any;
+  errorValidator = 0;
 
   constructor(
     public firebaseService: FirebaseService,
@@ -27,17 +28,27 @@ export class LoginComponent implements OnInit {
     this.myForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.pattern("(?=.*[a-z])(?=.*[A-Z]).{7,}")]],
-    }); console.log(this.myForm.errors)
+    });
   }
   onLogin(){
     const {email, password} = this.myForm.value;
     this.auth.signInWithEmailAndPassword(email, password)
-    .then(()=> this.router.navigate(['/task-list'])
-    .catch(error=>{this.error=error; console.log(error)}));
+    .then(() => this.router.navigate(['/task-list']))
+    .catch((error) => {
+      if(error.code == 'auth/user-not-found'){
+        this.errorValidator = 1;
+      } else if(error.code == 'auth/wrong-password'){
+        this.errorValidator = 2;
+      }
+      this.error = error.message;
+      console.log(this.error);
+  });
   }
 
+  submit(){
 
-  submit() {}
+  }
+}
 
 
   /* ngOnInit(): void {
@@ -57,5 +68,3 @@ export class LoginComponent implements OnInit {
 
   } */
 
-
-}
