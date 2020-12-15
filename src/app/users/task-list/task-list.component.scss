@@ -1,16 +1,26 @@
-.avatar{
-  border-radius: 30px;
+section{
+  #collection{
+    margin: 1%;
+    display: flex;
+    justify-content: space-around;
+    .avatar{
+      position: relative;
+      border-radius: 30px;
+    }
+    .detalle{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      width: 90%;
+      button{
 
-}
-#clection{
-margin: 1%;
-  img{
-position: absolute;
+      }
+      p{
+        margin-left: 5%;
+      }
+    }
+
   }
-  button{
-margin-left: 18%;
-  }
-  p{
-    margin-left: 23%;
-  }
+
 }

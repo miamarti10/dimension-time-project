@@ -36,18 +36,5 @@ export class TaskListComponent implements OnInit {
   async getUserTasks(userId: any){
   this.collection = await this.userTaskService.getUserTasks(userId);
   }
-/*  const globalTask = await this.globalService.getTask(id);
-  console.log(globalTask);
-  const usersTasks = await this.userTaskService.getTask(id, userId);
-  console.log(usersTasks);
-  this.userTask = usersTasks[0];
-  console.log(this.userTask, 'USER TASK');
-  if(usersTasks[0] == null){
-    const userTask = {'description': globalTask?.description,
-                      'name': globalTask?.name,
-                      'userId': userId,
-                      'taskId': id}
-    await this.userTaskService.createTask(userTask);
-    this.userTask = userTask;
-  } */
+
 }

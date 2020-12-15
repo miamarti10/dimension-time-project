@@ -29,19 +29,22 @@
 </nav>
 
 <section class="section">
-<h1 class="title">Tareas globales</h1>
-<div class="buttons">
-  <button class="button is-light is-rounded"
-  [routerLink]="['/task-details/', item.id]"
-  *ngFor="let item of collection" >{{item.name}}</button>
-</div>
+  <h1 class="title">Tareas globales</h1>
+  <div class="buttons">
+    <button class="button is-light is-rounded"
+    [routerLink]="['/task-details/', item.id]"
+    *ngFor="let item of collection" >{{item.name}}</button>
+  </div>
 
   <h1 class="title">Tus tareas</h1>
-  <div id="clection" *ngFor="let item of collection">
+  <div id="collection" *ngFor="let item of collection">
     <!-- <img class='avatar' src="{{item.avatar}}" width="64" height="64"> -->
-    <img class='avatar' src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/19/UP3749-CUSA10307_00-AV00000000000066/image?w=320&h=320&bg_color=000000&opacity=100&_version=00_09_000" width="64" height="64" alt="">
-    <button class="button has-text-info is-light is-rounded" (click)="toggleModal()">{{item.name}}</button>
-    <p class="has-text-success">{{item.description}}</p>
+    <img class='avatar' src="../../../assets/avatar-user.png" width="64" height="64" alt="">
+    <div class="detalle">
+      <button class="button has-text-info is-light is-rounded" (click)="toggleModal()">{{item.name}}</button>
+      <p class="has-text-success">{{item.description}}</p>
+    </div>
+
   </div>
 </section>
 
