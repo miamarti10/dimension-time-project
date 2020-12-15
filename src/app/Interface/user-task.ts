@@ -5,4 +5,6 @@ export interface UserTask {
   taskId?: string;
   userId?: string;
   id?: string;
+  name?: string;
+  description?: string;
 }

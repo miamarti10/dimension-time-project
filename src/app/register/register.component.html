@@ -28,7 +28,7 @@
       <span class="icon is-small">
       </span>
     </p>
-    <p *ngIf="registerForm.controls.email.errors && (registerForm.controls.email.dirty || registerForm.controls.  email.touched) "class="help is-danger">
+    <p *ngIf="registerForm.controls.email.errors && (registerForm.controls.email.dirty || registerForm.controls.email.touched) "class="help is-danger">
       <span *ngIf="registerForm.hasError('required', 'email')">Email address is required *</span>
       <span *ngIf="registerForm.hasError('email', 'email')">The email address is badly formatted *</span>
     </p>

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GlobalTask } from '../Interface/global-task';
 import { Observable } from 'rxjs';
-
+import { tap, first } from 'rxjs/operators'
 @Injectable({
   providedIn: 'root'
 })
@@ -19,9 +19,15 @@ constructor(/* private http: HttpClient,  */private af: AngularFirestore) { }
   getGlobalTasks$(): Observable<GlobalTask[]>{
     return this.af.collection<GlobalTask>('globalTasks').valueChanges();
     }
-  getTask$(id: string): Observable<GlobalTask | undefined> {
-      return this.af.collection<GlobalTask>('globalTasks').doc(id).valueChanges();
+  getTask(id: string){
+      console.log(id);
+      return this.af.collection<GlobalTask>('globalTasks').doc(id).valueChanges().pipe(first()).toPromise();
   }
+  getUserTasks(userId: string){
+    console.log(userId);
+      return this.af.collection<GlobalTask>('globalTasks').doc(userId).valueChanges().pipe(first()).toPromise();
+  }
+
       /* getMovie$(id: string): Observable<MovieInterface> {
         return this.http.get<MovieInterface>(`${environment.url}${id}`);
       } */

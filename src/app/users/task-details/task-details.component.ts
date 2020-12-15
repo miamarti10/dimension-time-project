@@ -1,12 +1,11 @@
 import { UserTask } from './../../Interface/user-task';
 import { UserTaskService } from './../../services/userTask.service';
 import { FirebaseService } from './../../services/firebase.service';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GlobalTask } from 'src/app/Interface/global-task';
 import { GlobaltaskService } from 'src/app/services/GlobaltaskService.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-
 
 @Component({
   selector: 'app-task-details',
@@ -14,6 +13,9 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./task-details.component.scss']
 })
 export class TaskDetailsComponent implements OnInit {
+
+  @Output() resultado = new EventEmitter;
+
   public hora: number = 0;
   public minuto: number = 0;
   public segundos: number = 0;
@@ -25,12 +27,13 @@ export class TaskDetailsComponent implements OnInit {
   fecha = new Date();
 
   id: any;
-  public subscribe!: Subscription;
   task!: GlobalTask;
   userTask!: UserTask;
-  collection!: GlobalTask[];
   intervalId!: any;
   tiempofinal!: any ;
+
+  taskId!: string;
+  userId!: string;
 
   constructor(private fs: FirebaseService,
               private globalService: GlobaltaskService,
@@ -40,34 +43,34 @@ export class TaskDetailsComponent implements OnInit {
   async ngOnInit(){
     const taskId = this.route.snapshot.paramMap.get('id');
     const user = await this.fs.getUser();
-    const userId = await user.uid;
-    console.log('taskID:', taskId);
-    console.log('userId:', userId);
-    this.userTaskService.getTask$(taskId, userId).subscribe(data =>
-      {this.userTask = data[0];
-        console.log(data)
-      });
-
-/*     const taskId = this.route.snapshot.paramMap.get('id');
-    const user = await this.fs.getUser();
-    const userId = await user.uid;
-    console.log('TaskID:', taskId);
-    console.log('userId:', userId);
-    this.userTaskService.getTask$(taskId, userId).subscribe(data =>
-      {this.userTask = data[0];  console.log(this.userTask)}); */
-  /*  this.id = this.route.snapshot.paramMap.get('id');
-    this.subscribe = this.globalService.getGlobalTasks$().subscribe(data => this.collection = data); */
+    const userId = user.uid;
+    await this.getTask(taskId, userId);
   }
 
-  existTask(){
-
+  async getTask(id: any, userId: any){
+    const globalTask = await this.globalService.getTask(id);
+    console.log(globalTask);
+    const usersTasks = await this.userTaskService.getTask(id, userId);
+    console.log(usersTasks);
+    this.userTask = usersTasks[0];
+    console.log(this.userTask, 'USER TASK');
+    if(usersTasks[0] == null){
+      const userTask = {'description': globalTask?.description,
+                        'name': globalTask?.name,
+                        'userId': userId,
+                        'taskId': id}
+      await this.userTaskService.createTask(userTask);
+      this.userTask = userTask;
+    }
   }
+  
   onLogout(){
     this.fs.logout();
   }
 
   start(){
-    this.mostrar ? this.mostrar = false : this.mostrar = true; //hacer otro método
+    this.mostrar ? this.mostrar = false : this.mostrar = true;
+                        //hacer otro método para no mezclar funcionalidades
 
     this.intervalId = setInterval(()=>{
       this.segundos+=1;
