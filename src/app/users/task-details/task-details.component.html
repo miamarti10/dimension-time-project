@@ -29,20 +29,26 @@
 
 <div class="contenido">
 
-<h1 class="subtitle is-3">TASK DETAIL</h1>
-<p class="subtitle is-5">userTask.name</p>
-<p class="subtitle is-5">userTask.description</p>
+  <h1 class="subtitle is-3">TASK DETAIL</h1>
+  <p class="subtitle is-5">userTask.name</p>
+  <p class="subtitle is-5">userTask.description</p>
 
-<h1 class="subtitle is-3">DATA</h1>
-<app-Date></app-Date>
-<div>
-  <p class="contador">{{hora}} : {{minuto}} : {{segundos}}</p>
+  <h1 class="subtitle is-3">DATA</h1>
+  <app-Date></app-Date>
+  <div>
+    <p class="contador">{{hora}} : {{minuto}} : {{segundos}}</p>
+  </div>
+
+
+  <button class="button is-primary" (click)="start()" *ngIf='!mostrar'>INICIAR</button>
+  <div *ngIf='mostrar'>
+    <button class="button is-success" (click)="pausar()">{{buttonLabel}}</button>
+    <button class="button is-danger" (click)="parar()">FINALIZAR</button>
+  </div>
+  <div class="resultado">
+    <h1>El tiempo total dedicado a esta tarea es:</h1>
+  <h4>{{tiempofinal}}</h4>
+  </div>
+
 </div>
 
-
-<button class="button is-primary" (click)="start()" *ngIf='!mostrar'>INICIAR</button>
-<div *ngIf='mostrar'>
-  <button class="button is-success" (click)="pausar()">{{buttonLabel}}</button>
-  <button class="button is-danger" (click)="parar()">FINALIZAR</button>
-</div>
-</div>

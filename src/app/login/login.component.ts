@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   /* isSignedIn=false; */
   myForm!: FormGroup;
   submitted = false;
+  error!: string;
+
 
   constructor(
     public firebaseService: FirebaseService,
@@ -29,12 +31,14 @@ export class LoginComponent implements OnInit {
   }
   onLogin(){
     const {email, password} = this.myForm.value;
-    this.auth.signInWithEmailAndPassword(email, password).then(()=> this.router.navigate(['/task-list']));
-  console.log();
+    this.auth.signInWithEmailAndPassword(email, password)
+    .then(()=> this.router.navigate(['/task-list'])
+    .catch(error=>{this.error=error; console.log(error)}));
   }
 
 
   submit() {}
+
 
   /* ngOnInit(): void {
     if(localStorage.getItem('user')!==null)

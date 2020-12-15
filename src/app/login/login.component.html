@@ -31,10 +31,12 @@
     </span>
   </p>
 
-  <p *ngIf="myForm.controls.password.errors && (myForm.controls.password.dirty || myForm.controls.password.touched) "class="help is-danger">
-  <span class="help is-danger" *ngIf="myForm.hasError('required', 'password')">Password is required *</span>
-  <span class="help is-danger" *ngIf="myForm.hasError('pattern', 'password')">Password must be 7 characters including 1 uppercase letter and 1 lowercase letter *</span>
-  </p>
+  <p *ngIf="myForm.controls.password.errors && (myForm.controls.password.dirty || myForm.controls.password.touched)" class="help is-danger">
+  <span *ngIf="myForm.hasError('required', 'password')">Password is required *</span>
+  <span *ngIf="myForm.hasError('pattern', 'password')">Password must be 7 characters including 1 uppercase letter and 1 lowercase letter *</span>
+</p>
+<span *ngIf="error" class="help is-danger">Password invalid *</span>
+
 </div>
 
   <div class= "has-text-centered" id="botones">

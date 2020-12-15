@@ -21,7 +21,7 @@ export class TaskDetailsComponent implements OnInit {
   isPaused!: boolean;
   buttonLabel: string = 'PARAR';
   mostrar: boolean = false;
-  contador = null;
+  contador: any;
   fecha = new Date();
 
   id: any;
@@ -29,6 +29,8 @@ export class TaskDetailsComponent implements OnInit {
   task!: GlobalTask;
   userTask!: UserTask;
   collection!: GlobalTask[];
+  intervalId!: any;
+  tiempofinal!: any ;
 
   constructor(private fs: FirebaseService,
               private globalService: GlobaltaskService,
@@ -43,7 +45,7 @@ export class TaskDetailsComponent implements OnInit {
     console.log('userId:', userId);
     this.userTaskService.getTask$(taskId, userId).subscribe(data =>
       {this.userTask = data[0];
-        console.log(this.userTask)
+        console.log(data)
       });
 
 /*     const taskId = this.route.snapshot.paramMap.get('id');
@@ -65,9 +67,9 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   start(){
-    this.mostrar ? this.mostrar = false : this.mostrar = true;
+    this.mostrar ? this.mostrar = false : this.mostrar = true; //hacer otro método
 
-    setInterval(()=>{
+    this.intervalId = setInterval(()=>{
       this.segundos+=1;
       if(this.segundos == 60){
         this.segundos = 0;
@@ -88,12 +90,16 @@ export class TaskDetailsComponent implements OnInit {
     if(this.minuto < 24 || this.segundos < 59){
       this.buttonLabel = this.isPaused ? 'REANUDAR' : 'PARAR';
     }
+    clearInterval(this.intervalId);
   }
   parar(){
-    this.hora = 0;
+    clearInterval(this.intervalId);
+    this.tiempofinal = (`${this.hora} horas : ${this.minuto} minutos: ${this.segundos} segundos`);
+    console.log(this.tiempofinal);
+    /* this.hora = 0;
     this.minuto = 0;
     this.segundos = 0;
-    this.contador = null;
+    this.contador = null; */
   }
 
 }

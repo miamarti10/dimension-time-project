@@ -15,8 +15,9 @@ createTask(userTask: UserTask){
   return this.afs.collection<UserTask>('userTasks').doc(userTask.id).set(userTask);
 }
 getTask$(taskId: string | null, userId: string | null){
+  console.log(taskId, userId);
   return this.afs.collection<UserTask>('userTasks', ref =>
-  ref.where('userId', '==', userId).where('taskId', '==', taskId)).valueChanges();
+  ref.where('userId', '==', userId)/* .where('taskId', '==', taskId) */).valueChanges();
   }
   /* getByNameAndId(){
     return this.afs.collection<User>('users', ref =>
