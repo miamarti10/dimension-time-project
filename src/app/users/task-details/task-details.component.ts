@@ -2,11 +2,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { UserTask } from './../../Interface/user-task';
 import { UserTaskService } from './../../services/userTask.service';
 import { FirebaseService } from './../../services/firebase.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GlobalTask } from 'src/app/Interface/global-task';
 import { GlobaltaskService } from 'src/app/services/GlobaltaskService.service';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-task-details',
@@ -14,8 +13,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./task-details.component.scss']
 })
 export class TaskDetailsComponent implements OnInit {
-
-  @Output() resultado = new EventEmitter;
 
   public hora: number = 0;
   public minuto: number = 0;
@@ -40,8 +37,7 @@ export class TaskDetailsComponent implements OnInit {
   constructor(private fs: FirebaseService,
               private globalService: GlobaltaskService,
               private route: ActivatedRoute,
-              private userTaskService: UserTaskService,
-              private auth: AngularFireAuth) { }
+              private userTaskService: UserTaskService) { }
 
   async ngOnInit(){
     const taskId = this.route.snapshot.paramMap.get('id');
@@ -51,10 +47,11 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   async getTask(id: any, userId: any){
+    console.log(id);
     const globalTask = await this.globalService.getTask(id);
-    console.log(globalTask);
+    console.log(globalTask, 'Global Task');
     const usersTasks = await this.userTaskService.getTask(id, userId);
-    console.log(usersTasks);
+    console.log(usersTasks, 'Users Tasks');
     this.userTask = usersTasks[0];
     console.log(this.userTask, 'USER TASK');
     if(usersTasks[0] == null){
@@ -73,7 +70,6 @@ export class TaskDetailsComponent implements OnInit {
 
   start(){
     this.mostrar ? this.mostrar = false : this.mostrar = true;
-                        //hacer otro método para no mezclar funcionalidades
 
     this.intervalId = setInterval(()=>{
       this.segundos+=1;
@@ -90,22 +86,20 @@ export class TaskDetailsComponent implements OnInit {
       }
     }, 1000);
   }
-  pausar(): void{
+  pausar(){
     this.isPaused = !this.isPaused;
 
     if(this.minuto < 24 || this.segundos < 59){
       this.buttonLabel = this.isPaused ? 'REANUDAR' : 'PARAR';
     }
     clearInterval(this.intervalId);
+    delete this.intervalId;
   }
+
   parar(){
     clearInterval(this.intervalId);
     this.tiempofinal = (`${this.hora} horas : ${this.minuto} minutos: ${this.segundos} segundos`);
     console.log(this.tiempofinal);
-    /* this.hora = 0;
-    this.minuto = 0;
-    this.segundos = 0;
-    this.contador = null; */
   }
 
 }

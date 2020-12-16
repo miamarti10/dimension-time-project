@@ -25,10 +25,5 @@ getUserTasks(userId: string){
     return this.afs.collection<UserTask>('userTasks', ref =>
     ref.where('userId', '==', userId)).valueChanges().pipe(first()).toPromise();
   }
-  /* getByNameAndId(){
-    return this.afs.collection<User>('users', ref =>
-    ref.where('name','==','sara').where('id','==','Lir0KR4sX5YhPA7MKgesedSJgv12')).valueChanges();
-  } */
-
 
 }
